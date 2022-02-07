@@ -44,7 +44,7 @@ a:hover, a:focus {
     font-weight: bold;
 }
 
-@media screen and (max-width: 68em) {
+@media screen and (max-width: 56em) {
     #name {
         font-size: var(--font-size-header-1-mobile);
     }
@@ -54,7 +54,7 @@ a:hover, a:focus {
     }
 }
 
-@media screen and (min-width: 68em) {
+@media screen and (min-width: 56em) {
     #name {
         font-size: var(--font-size-header-1);
     }
