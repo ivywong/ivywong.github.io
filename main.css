@@ -3,8 +3,11 @@
     --text-color-dark: #111;
     --text-color-lowcontrast: #9c9c9c;
     --background-color-main: #fffff8;
-    --font-size-header-1: 30px;
-    --font-size-body: 16px;
+    --font-size-header-1: 2.5em;
+    --font-size-body: 1em;
+
+    --font-size-header-1-mobile: 4em;
+    --font-size-body-mobile: 3em;
 }
 
 html, body {
@@ -41,17 +44,17 @@ a:hover, a:focus {
     font-weight: bold;
 }
 
-@media (max-width: 1100px) {
+@media screen and (max-width: 68em) {
     #name {
-        font-size: var(--font-size-header-1);
+        font-size: var(--font-size-header-1-mobile);
     }
     #tagline {
-        font-size: var(--font-size-body);
+        font-size: var(--font-size-body-mobile);
         width: 80%;
     }
 }
 
-@media (min-width: 1100px) {
+@media screen and (min-width: 68em) {
     #name {
         font-size: var(--font-size-header-1);
     }
