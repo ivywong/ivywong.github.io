@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>ivywong.dev - {{ title }}</title>
+</head>
+<body>
+    <div class="content">
+        <h1 class="post-title">{{ title }}</h1>
+        <div class="post-metadata">
+            <div class="post-date">created {{ created | readableDate }}</div>
+            {% if created != page.date %} | 
+            <div class="post-date">updated {{ page.date | readableDate }}</div>
+            {% endif %}
+            {% if tags %} | {% endif %}
+            {% for tag in tags %}
+            <div class="post-tag">{{ tag }}</div>
+            {% endfor %}
+        </div>
+        {{ content | safe }}
+
+        {% include "layouts/footer.njk" %}
+    </div>
+</body>
+</html>

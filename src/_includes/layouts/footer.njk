@@ -1,0 +1,16 @@
+<div class="footer">
+    <hr/>
+    {% for navitem in nav.pages %}
+    {% set urlStripped = page.url | stripUrlTrailingSlash %}
+    {% if urlStripped !== navitem.url %}
+    <a href="{{ navitem.url }}">
+        {% if page.url !== "/" %}
+        <<
+        {% else %}
+        >>
+        {% endif %}
+        {{ navitem.name }}
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>

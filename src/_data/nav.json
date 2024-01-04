@@ -1,0 +1,12 @@
+{
+    "pages": [
+        {
+            "name": "home",
+            "url": "/"
+        },
+        {
+            "name": "blog",
+            "url": "/posts"
+        }
+    ]
+}

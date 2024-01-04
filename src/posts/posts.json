@@ -1,0 +1,5 @@
+{
+    "layout": "layouts/post.njk",
+    "date": "Last Modified",
+    "permalink": "posts/{{ created | date: '%Y/%m/%d' }}/{{ title | slugify }}/index.html"
+}

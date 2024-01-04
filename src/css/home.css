@@ -1,8 +1,8 @@
 :root {
-    --text-color-base: #444;
-    --text-color-dark: #111;
-    --text-color-lowcontrast: #9c9c9c;
-    --background-color-main: #fffff8;
+    --text-color-base: #e0e0e0;
+    --text-color-dark: #85858e;
+    --text-color-lowcontrast: #7d7d7d;
+    --background-color-main: #2c2c2c;
     --font-size-header-1: 2.5em;
     --font-size-body: 1em;
 
