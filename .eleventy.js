@@ -5,6 +5,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/res");
   eleventyConfig.addWatchTarget("./src/css/");
 
+  eleventyConfig.addPassthroughCopy("CNAME");
+
   eleventyConfig.addCollection("published", (collectionApi) => {
     return collectionApi.getAll()
       .filter((post) => "published" in post.data && post.data["published"] == true)
