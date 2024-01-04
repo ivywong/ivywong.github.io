@@ -1,0 +1,85 @@
+:root {
+    --text-color: #e0e0e0;
+    --quiet-text-color: #bebec6;
+    --link-hover-color: #960101;
+    --link-visited-color: #7d7d7d;
+    --bg-color: #2c2c2c;
+}
+
+body {
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.content {
+    max-width: 700px;
+    padding: 1rem 3rem;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+/* blog post classes */
+.post-title {
+    line-height: 1em;
+}
+
+.post-metadata {
+    color: var(--quiet-text-color);
+    display: inline-block;
+}
+
+.post-date {
+    display: inline-block;
+}
+
+.post-tag {
+    display: inline-block;
+}
+
+/* blog index classes */
+.post-item-index > * {
+    display: inline-block;
+}
+
+.post-item-index {
+    list-style-type: none;
+}
+
+.post-date-index {
+    padding-right: 2rem;
+}
+
+
+/* links */
+a {
+    color: var(--text-color);
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* misc */
+hr {
+   border: none;
+   border-top: 1px solid var(--quiet-text-color); 
+   border-color: var(--quiet-text-color); 
+   overflow: visible;
+   text-align: center;
+   height: px;
+   opacity: 50%;
+}
+
+.footer {
+    color: var(--quiet-text-color);
+}
+
+.footer a {
+    display: inline-block;
+}
