@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://ivywong.dev/posts/">
+  <title>a blog by ivy wong</title>
+  <subtitle>thoughts and ramblings</subtitle>
+  <link href="https://ivywong.dev/posts/feed.xml" rel="self"/>
+  <link href="https://ivywong.dev/posts/"/>
+  <updated>2024-01-07T22:45:26Z</updated>
+  <id>https://ivywong.dev/posts/</id>
+  <author>
+    <name>Ivy Wong</name>
+    <email>ivy@ivywong.dev</email>
+  </author>
+  <entry>
+    <title>starting recurse center (w2&#39;24)</title>
+    <link href="https://ivywong.dev/posts/starting-recurse-center/"/>
+    <updated>2024-01-07T22:45:19Z</updated>
+    <id>https://ivywong.dev/posts/starting-recurse-center/</id>
+    <content xml:lang="en" type="html">&lt;p&gt;I just finished my first week at &lt;a href=&quot;https://www.recurse.com/&quot;&gt;Recurse Center&lt;/a&gt;, a self-directed community-focused programmer&#39;s retreat, which started on January 3rd. I&#39;d found out about RC sometime in 2022&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;, and thought it was Very Cool, both in its values and goals, and in the idea of being able to spend a whole 12 weeks with other people learning and hacking on various things. But I didn&#39;t think I would have 6 to 12 weeks of vacation or free time any time soon, so I put it on my mental bucket list.&lt;/p&gt;
+&lt;p&gt;Then I quit my job last year&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt; to take a break and figure out where I wanted my career to go next, and found myself staring down at a lot of free time. After some traveling, I applied to Recurse Center in December. Fortunately, I was just able to squeak by into the Winter 2 batch.&lt;/p&gt;
+&lt;p&gt;The first week (which was more like half a week) was very hectic and jam packed with events, chatting with people, and reading way too much Zulip. I RSVP&#39;d for far too many study groups&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fn3&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt; than I had time for and spent some time this weekend figuring out which ones I could actually feasibly attend.&lt;/p&gt;
+&lt;p&gt;In any case, now that things have calmed down a bit, let&#39;s talk about goals.&lt;/p&gt;
+&lt;h2&gt;Initial Goals&lt;/h2&gt;
+&lt;p&gt;Coming into Recurse Center I had a couple of vague goals, but didn&#39;t have a big project I wanted to focus on specifically. The goals that I put down in my intro were as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;building some small webapps to learn Javascript/Typescript, possibly related to language learning, or just some fun/cool art or data visualization&lt;/li&gt;
+&lt;li&gt;make my own personal website and blog following IndieWeb standards, and actually write some blog posts&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fn4&quot; id=&quot;fnref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;dipping into gamedev with Godot, or experimenting with interactive fiction&lt;/li&gt;
+&lt;li&gt;learning about LLMs/generative AI/NLP&lt;/li&gt;
+&lt;li&gt;going out of my comfort zone with topics such as low-level or systems programming, and programming language theory&lt;/li&gt;
+&lt;li&gt;meet new people and pair program a lot!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don&#39;t expect to work on all of these, of course. In fact, after this first week and thinking about how I&#39;m going to manage my time, I think my actual goals for the first few weeks should be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;building some small fun webapps to learn Javascript/Typescript/webdev&lt;/li&gt;
+&lt;li&gt;meet new people and pair program a lot!&lt;/li&gt;
+&lt;li&gt;blog about what I&#39;m learning&lt;/li&gt;
+&lt;li&gt;dabble with other topics in my free time or when I am bored/stuck&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tomorrow, there&#39;s going to be a workshop on &amp;quot;building your volitional muscles&amp;quot; which might also help with goal-setting. I&#39;m excited for week 2!&lt;/p&gt;
+&lt;hr class=&quot;footnotes-sep&quot; /&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;Where? I have no idea! I tried looking at my browser history but couldn&#39;t figure it out. I&#39;m pretty sure it was an alumni blog. Possibly &lt;a href=&quot;https://jvns.ca/blog/2017/09/17/how-i-spent-my-time-at-the-recurse-center/&quot;&gt;Julia Evans&lt;/a&gt;? &lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;I first wrote &amp;quot;earlier this year&amp;quot; before remembering it&#39;s now 2024. Happy new year! &lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fnref2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn3&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://karpathy.ai/zero-to-hero.html&quot;&gt;ML Foundations&lt;/a&gt;, &lt;a href=&quot;http://craftinginterpreters.com/&quot;&gt;Crafting Interpreters&lt;/a&gt;, &lt;a href=&quot;https://rust-unofficial.github.io/too-many-lists/index.html&quot;&gt;Rust&lt;/a&gt;, &lt;a href=&quot;https://eloquentjavascript.net/&quot;&gt;Eloquent JS&lt;/a&gt;... &lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fnref3&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn4&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;As you can see, I now have a rather barebones blog, generated via &lt;a href=&quot;https://www.11ty.dev/&quot;&gt;11ty&lt;/a&gt;! I haven&#39;t added webmentions yet though. Later, I might make this fancier. &lt;a href=&quot;https://ivywong.dev/posts/starting-recurse-center/#fnref4&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+  </entry>
+</feed>

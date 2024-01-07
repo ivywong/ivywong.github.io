@@ -4,10 +4,11 @@
     --link-hover-color: #960101;
     --link-visited-color: #7d7d7d;
     --bg-color: #2c2c2c;
+    --bg-highlight: #484848;
 }
 
 body {
-    font-family: monospace;
+    font-family: 'Inconsolata', monospace;
     font-size: 1rem;
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -82,4 +83,12 @@ hr {
 
 .footer a {
     display: inline-block;
+}
+
+.footnote-item p {
+    padding: 5px;
+}
+
+.footnote-item:target {
+    background-color: var(--bg-highlight);
 }
