@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ivy wong ⁂ home</title>
+    <title>ivy wong ⁂ about</title>
     <meta charset="UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +34,15 @@
         </div>
       </nav>
       <article id="main-content">
-        <img src="/img/splash-min.png" style="max-width: 100%;"></img>
+        <h1>about</h1>
+<p>hi, i'm ivy. i'm a software developer, artist, and writer.</p>
+<p>this website is my own personal space on the internet.</p>
+<p>outside of this website, you can find me on:</p>
+<ul>
+<li><a href="https://github.com/ivywong/">github</a></li>
+<li>hello @ this site</li>
+</ul>
+
       </article>
     </div>
   </body>
