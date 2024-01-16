@@ -1,7 +1,7 @@
 ---
 layout: layouts/home.njk
 title: about
-permalink: "/about"
+permalink: "/about/index.html"
 ---
 # about
 
