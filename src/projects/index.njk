@@ -1,0 +1,17 @@
+---
+layout: layouts/home.njk
+title: projects
+permalink: "/projects/index.html"
+---
+<h1>projects</h1>
+
+<p>experiments and things</p>
+
+<ul>
+    {% for project in collections.projects | reverse %}
+    <li class="project-item">
+        <div class="project-description">{{ project.data.description }}</div>
+        <a href="{{ project.data.url }}">{{ project.data.title | lower }}</a>
+    </li>
+    {% endfor %}
+</ul>

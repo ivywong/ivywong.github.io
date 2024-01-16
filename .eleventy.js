@@ -5,7 +5,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   
   eleventyConfig.addPassthroughCopy("./src/css");
-  eleventyConfig.addPassthroughCopy("./src/res");
+  eleventyConfig.addPassthroughCopy("./src/css");
+  eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addWatchTarget("./src/css/");
 
   eleventyConfig.addPassthroughCopy("CNAME");

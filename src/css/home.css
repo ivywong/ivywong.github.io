@@ -2,9 +2,9 @@
     --text-color-base: #e0e0e0;
     --text-color-dark: #85858e;
     --text-color-lowcontrast: #7d7d7d;
-    --background-color-main: #2c2c2c;
-    --font-size-header-1: 2.5em;
-    --font-size-body: 1em;
+    --background-color-main: #1e1e1e;
+    --font-size-header-1: 1.1em;
+    --font-size-body: 1.2em;
 
     --font-size-header-1-mobile: 3em;
     --font-size-body-mobile: 1.5em;
@@ -13,25 +13,15 @@
 html, body {
     height: 100%;
     margin: 0;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Nanum Myeongjo', 'Georgia', serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     color: var(--text-color-base);
     background-color: var(--background-color-main);
-}
-
-.lowcontrast {
-    color: var(--text-color-lowcontrast);
-}
-
-#tagline {
-    padding-top: 10px;
-    text-align: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    font-size: var(--font-size-body);
 }
 
 a, a:visited {
@@ -39,27 +29,68 @@ a, a:visited {
     text-decoration: underline;
 }
 
-a:hover, a:focus {
-    color: var(--text-color-dark);
+li {
+    list-style-type: circle;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    margin: 1em auto;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    min-width: 20%;
+    margin-top: 20%;
+    padding-right: 1em;
+    border-right: solid 1px;
+}
+
+#site-head {
+    font-size: var(--font-size-header-1);
     font-weight: bold;
 }
 
-@media screen and (max-width: 60em) {
-    #name {
-        font-size: var(--font-size-header-1-mobile);
-    }
-    #tagline {
-        font-size: var(--font-size-body-mobile);
-        width: 80%;
-    }
+#site-head:hover {
+    color: var(--text-color-base);
 }
 
-@media screen and (min-width: 60em) {
-    #name {
-        font-size: var(--font-size-header-1);
-    }
-    #tagline {
-        font-size: var(--font-size-body);
-        width: 45%;
-    }
+#sidebar li {
+    list-style: none;
+    padding-bottom: 0.2em;
+    text-decoration: none;
 }
+
+#main-content {
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.lowcontrast {
+    color: var(--text-color-lowcontrast);
+}
+
+h1 a, #sidebar a {
+    text-decoration: none;
+}
+
+#sidebar li a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width:480px) {
+    #container {
+        flex-direction: column;
+        padding: 0 1em;
+    }
+
+    #sidebar {
+        text-align: center;
+        border-right: none;
+        border-bottom: solid 1px;
+        margin-top: 0;
+    }
+  }
