@@ -1,6 +1,7 @@
 const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -56,12 +57,26 @@ module.exports = function (eleventyConfig) {
     debugger;
   })
 
+  const markdownItAnchorOptions = {
+    permalink: markdownItAnchor.permalink.linkAfterHeader({
+      symbol: "#",
+      style: 'visually-hidden',
+      assistiveText: title => `permalink to "${title}"`,
+      visuallyHiddenClass: 'visually-hidden',
+      wrapper: ['<div class="anchor-wrapper">', '</div>'],
+      renderAttrs: (slug) => {
+        return { class: "test" };
+      }
+    }),
+  }
+
   const md = markdownIt({
     html: true,
     breaks: true,
     linkify: true
   })
-  .use(require("markdown-it-footnote"));
+  .use(require("markdown-it-footnote"))
+  .use(markdownItAnchor, markdownItAnchorOptions);
 
   eleventyConfig.setLibrary("md", md);
 

@@ -12,6 +12,25 @@ body {
     line-height: 1.6;
 }
 
+/* Headers */
+.visually-hidden {
+    display: none;
+}
+
+.anchor-wrapper > * {
+    display: inline-block;
+}
+
+.header-anchor, .header-anchor:visited {
+    color: var(--text-color-lowcontrast);
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
 img {
     max-width: 100%;
 }
