@@ -1,0 +1,15 @@
+---
+layout: layouts/home.njk
+---
+<h1 class="post-title"><a href="{{ page.url }}">{{ title }}</a></h1>
+<div class="post-metadata">
+    <div class="post-date">created {{ created | readableDate }}</div>
+    {% if created != page.date %} | 
+    <div class="post-date">updated {{ page.date | readableDate }}</div>
+    {% endif %}
+    {% if tags %} | {% endif %}
+    {% for tag in tags %}
+    <div class="post-tag">{{ tag }}</div>
+    {% endfor %}
+</div>
+{{ content | safe }}

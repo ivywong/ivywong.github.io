@@ -2,7 +2,12 @@
     --text-color-base: #e0e0e0;
     --text-color-dark: #85858e;
     --text-color-lowcontrast: #7d7d7d;
+    --text-color-quiet: #bebec6;
     --background-color-main: #1e1e1e;
+    --background-color-highlight: #484848;
+    --link-hover-color: #dc6161;
+    --link-visited-color: #7d7d7d;
+
     --font-size-header-1: 1.1em;
     --font-size-body: 1.2em;
 
@@ -47,6 +52,8 @@ li {
     margin-top: 20%;
     padding-right: 1em;
     border-right: solid 1px;
+    position: sticky;
+    top: 5%;
 }
 
 #site-head {
@@ -64,7 +71,7 @@ li {
     text-decoration: none;
 }
 
-#main-content {
+#content {
     padding: 1em;
     margin-top: 1em;
 }
@@ -81,7 +88,7 @@ h1 a, #sidebar a {
     text-decoration: underline;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:900px) {
     #container {
         flex-direction: column;
         padding: 0 1em;

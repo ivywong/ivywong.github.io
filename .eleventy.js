@@ -1,8 +1,16 @@
 const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    preAttributes: {
+      "data-language": function({ language, content, options }) {
+        return language;
+      }
+    }
+  });
   
   eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/css");
@@ -12,8 +20,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
 
   eleventyConfig.addCollection("published", (collectionApi) => {
-    return collectionApi.getAll()
-      .filter((post) => "published" in post.data && post.data["published"] == true)
+    return collectionApi.getFilteredByGlob(["./src/posts/*.md"])
+      .filter((post) => "published" in post.data && post.data["published"] == true);
+  });
+
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob(["./src/posts/*.md"]);
+  });
+
+  eleventyConfig.addCollection("projects", function(collectionApi) {
+    return collectionApi.getFilteredByGlob(["./src/projects/*.md"]);
   });
 
   eleventyConfig.addFilter("readableDate", function(date) {
@@ -35,11 +51,17 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  eleventyConfig.addFilter("debugger", (...args) => {
+    console.log(...args)
+    debugger;
+  })
+
   const md = markdownIt({
     html: true,
     breaks: true,
     linkify: true
-  }).use(require("markdown-it-footnote"));
+  })
+  .use(require("markdown-it-footnote"));
 
   eleventyConfig.setLibrary("md", md);
 

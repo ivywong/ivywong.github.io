@@ -7,11 +7,16 @@ permalink: "/projects/index.html"
 
 <p>experiments and things</p>
 
-<ul>
-    {% for project in collections.projects | reverse %}
+<ul class="project-list">
+    {% for project in collections.projects %}
     <li class="project-item">
-        <div class="project-description">{{ project.data.description }}</div>
-        <a href="{{ project.data.url }}">{{ project.data.title | lower }}</a>
+        <a href="{{ project.url }}"><b>{{ project.data.title | lower }}</b></a> ~ 
+        <span class="project-description">{{ project.data.description }}</span> 
+        
+        <span class="project urls">
+            {% if project.data.repoUrl %}(<a href="{{ project.data.repoUrl }}">code</a>){% endif %}
+            {% if project.data.demoUrl %}(<a href="{{ project.data.demoUrl }}">demo</a>){% endif %}
+        </span> 
     </li>
     {% endfor %}
 </ul>
