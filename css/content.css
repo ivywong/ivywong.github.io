@@ -1,23 +1,13 @@
-:root {
-    --text-color: #e0e0e0;
-    --quiet-text-color: #bebec6;
-    --link-hover-color: #dc6161;
-    --link-visited-color: #7d7d7d;
-    --bg-color: #1e1e1e;
-    --bg-highlight: #484848;
-}
-
 body {
     font-family: 'Nanum Myeongjo', 'Georgia', serif;
     font-size: 1.2em;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    max-width: 700px;
+    color: var(--text-color-base);
+    background-color: var(--background-color-main);
     margin: 0 auto;
 }
 
-.content {
-    max-width: 100%;
+#content {
+    max-width: 700px;
     padding: 1rem 3rem;
     line-height: 1.6;
 }
@@ -32,7 +22,7 @@ pre[class*="language-"] {
     padding: 0.8em 1.5em;
     border-radius: .3em;
     font-size: 0.9em;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 
 code[class*="language-"] {
@@ -57,7 +47,7 @@ pre[data-language]::before {
 }
 
 .post-metadata {
-    color: var(--quiet-text-color);
+    color: var(--text-color-lowcontrast);
     display: inline-block;
 }
 
@@ -70,22 +60,30 @@ pre[data-language]::before {
 }
 
 /* blog index classes */
-.post-item-index > * {
-    display: inline-block;
-}
-
 .post-item-index {
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
 }
 
 .post-date-index {
-    padding-right: 2rem;
+    margin-right: 2em;    
+}
+
+/* project index */
+.project-list {
+    padding-left: 20px;
+}
+
+.project-item {
+    list-style-type: none;
+    padding-bottom: 10px;
 }
 
 
 /* links */
 a {
-    color: var(--text-color);
+    color: var(--text-color-base);
 }
 
 a:visited {
@@ -99,8 +97,8 @@ a:hover {
 /* misc */
 hr {
    border: none;
-   border-top: 1px solid var(--quiet-text-color); 
-   border-color: var(--quiet-text-color); 
+   border-top: 1px solid var(--text-color-lowcontrast); 
+   border-color: var(--text-color-lowcontrast); 
    overflow: visible;
    text-align: center;
    height: px;
@@ -108,7 +106,7 @@ hr {
 }
 
 .footer {
-    color: var(--quiet-text-color);
+    color: var(--text-color-lowcontrast);
 }
 
 .footer a {
@@ -120,5 +118,5 @@ hr {
 }
 
 .footnote-item:target {
-    background-color: var(--bg-highlight);
+    background-color: var(--background-color-highlight);
 }

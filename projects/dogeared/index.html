@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ivy wong ⁂ dogeared</title>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/css/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/content.css" />
+    <meta
+      name="viewport"
+      content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <nav id="sidebar-nav">
+        <div id="sidebar">
+          <ul>
+            <li><a id="site-head" href="/">⁂</a></li>
+            <li><a href="/about">about</a></li>
+            <li><a href="/projects">projects</a></li>
+            <li><a href="/posts">writing</a></li>
+            <li><a href="/garden">garden</a></li>
+          </ul>
+        </div>
+      </nav>
+      <article id="content">
+        <h1 class="post-title"><a href="/projects/dogeared/">dogeared</a></h1>
+<div class="post-metadata">
+    <div class="post-date">created january 10, 2024</div>
+     | 
+    <div class="post-date">updated january 19, 2024</div>
+    
+    
+    
+</div>
+<h2>overview</h2>
+<p>I spend a lot of time reading and watching things on the internet. Sometimes these things are long / broken into parts across many different pages and I don't have a good way to keep track of my progress without either juggling a lot of bookmarks, writing down where I left off elsewhere, or eternally keeping a tab open.</p>
+<p>This browser extension tries to solve this problem by providing a way to save the current page as your place in a &quot;series&quot;, load it, and overwrite the saved page with some other page.</p>
+<h2>links</h2>
+<ul>
+<li><a href="https://github.com/ivywong/dogeared">github repo</a></li>
+</ul>
+<h2>out of scope (for now)</h2>
+<ul>
+<li>adding complex validation for whether you can save certain pages in a series based on URL pattern matching</li>
+<li>storing or scraping table of contents for various kinds of series (and therefore progress information)</li>
+</ul>
+<h2>development plan</h2>
+<p>Until validation is implemented, in practice, what I'm referring to as a &quot;series&quot; does not have to be an actual series, but is simply &quot;a named container for a URL&quot;. For many use cases, validation would involve parsing the actual web page or providing a table of contents, which is unnecessary. Still, I plan to implement basic validation using the current domain, or a user-provided prefix.</p>
+<h3>features in order of development</h3>
+<ul>
+<li>[x] you can create a series with the current page and a custom name</li>
+<li>[x] you can save, load, update, and delete a series</li>
+<li>[ ] you can edit the name of an existing series</li>
+<li>[x] you can view a list of saved series in the extension popup</li>
+<li>[x] series information is stored persistently</li>
+<li>[ ] search and filter series in the extension popup by name/url</li>
+<li>[ ] validate adding marks by domain (at minimum)</li>
+<li>[ ] popup for displaying errors</li>
+<li>[ ] you can view history of a series in the popup
+<ul>
+<li>no limit to the history for now</li>
+</ul>
+</li>
+<li>[ ] export/import series data (needs UI) (no merge)</li>
+</ul>
+<h3>sometime</h3>
+<ul>
+<li>fancy styling and clean UI
+<ul>
+<li>css animations? or other way to expand history list</li>
+<li>light and dark mode icons and theme</li>
+</ul>
+</li>
+<li>options page
+<ul>
+<li>configure max history size</li>
+</ul>
+</li>
+<li>keyboard shortcuts for doing all the things
+<ul>
+<li>open popup</li>
+<li>create new series</li>
+<li>select series</li>
+<li>update selected series</li>
+<li>filter series</li>
+</ul>
+</li>
+<li>shortcut (context menu/keyboard) to save current page to last loaded series</li>
+<li>save and load data from The Cloud
+<ul>
+<li>possibly google drive</li>
+</ul>
+</li>
+</ul>
+<h2>design details</h2>
+<h3>dependencies</h3>
+<p>Browser APIs:</p>
+<ul>
+<li>tabs APIs
+<ul>
+<li>tabs.query() (for active tab)</li>
+<li>tabs.create()</li>
+</ul>
+</li>
+<li>window.localstorage
+<ul>
+<li>to persist series data across browser sessions</li>
+</ul>
+</li>
+<li>Web components?
+<ul>
+<li><a href="https://frontendmasters.com/blog/vanilla-javascript-reactivity/">Patterns for Reactivity with Modern Vanilla JavaScript – Frontend Masters Boost</a></li>
+<li><a href="https://frontendmasters.com/blog/vanilla-javascript-todomvc/">Writing a TodoMVC App With Modern Vanilla JavaScript – Frontend Masters Boost</a></li>
+</ul>
+</li>
+</ul>
+<p>Third-party dependencies:</p>
+<ul>
+<li>Something for fuzzy searching? <a href="https://www.fusejs.io/">Fuse.js | Fuse.js</a>
+<ul>
+<li>or can just use <a href="https://stackoverflow.com/a/62216738/23227058">regex - Javascript fuzzy search that makes sense - Stack Overflow</a></li>
+</ul>
+</li>
+</ul>
+<p>External Information needed</p>
+<ul>
+<li>user's current tab - title &amp; URL</li>
+<li>current page favicon (<a href="https://stackoverflow.com/questions/19183180/how-to-save-an-image-to-localstorage-and-display-it-on-the-next-page">how to save in local storage</a>)</li>
+<li>current time (when saving)</li>
+</ul>
+<h3>storage format</h3>
+<details>
+<summary>Series Information JSON</summary>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"series"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"1e8ed227-7c10-4000-afa0-669f184576fc"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Grant Abbitt - Blender 3 - Complete Beginners Guide"</span><span class="token punctuation">,</span>
+            <span class="token property">"marks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Blender 3 - Complete Beginners Guide - Part 2 - Materials &amp; Rendering"</span><span class="token punctuation">,</span>
+                    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://www.youtube.com/watch?v=g5lHlUB66r0&amp;list=PLn3ukorJv4vuU3ILv3g3xnUyEGOQR-D8J&amp;index=2"</span><span class="token punctuation">,</span>
+                    <span class="token property">"creation_time"</span> <span class="token operator">:</span> <span class="token number">1704668925</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Blender 3 - Complete Beginners Guide - Part 3 - The Old Man"</span><span class="token punctuation">,</span>
+                    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://www.youtube.com/watch?v=zt2ldQ23uOE&amp;list=PLn3ukorJv4vuU3ILv3g3xnUyEGOQR-D8J&amp;index=3"</span><span class="token punctuation">,</span>
+                    <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span>
+                <span class="token punctuation">}</span> <span class="token comment">// the page displayed is always the last one</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"validation_prefix"</span><span class="token operator">:</span> <span class="token string">"https://youtube.com"</span><span class="token punctuation">,</span>
+            <span class="token property">"favicon"</span><span class="token operator">:</span> `icon_$<span class="token punctuation">{</span>id<span class="token punctuation">}</span>.png`<span class="token punctuation">,</span> <span class="token comment">// or store separately</span>
+            <span class="token property">"last_access_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span><span class="token punctuation">,</span> <span class="token comment">// update, load</span>
+            <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"047b0f7b-2da2-4b5c-8bb3-36078a2c1b08"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Crafting Interpreters"</span><span class="token punctuation">,</span>
+            <span class="token property">"marks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Scanning - Crafting Interpreters"</span><span class="token punctuation">,</span>
+                    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"http://craftinginterpreters.com/scanning.html#lexemes-and-tokens"</span><span class="token punctuation">,</span>
+                    <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704668925</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"validation_prefix"</span><span class="token operator">:</span> <span class="token string">"http://craftinginterpreters.com"</span><span class="token punctuation">,</span>
+            <span class="token property">"favicon"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token property">"last_access_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span><span class="token punctuation">,</span>
+            <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"c4df7368-747c-4c88-ba3c-2256355bead4"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Misc Cat Videos"</span><span class="token punctuation">,</span>
+            <span class="token property">"marks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Nyan Cat! [Official]"</span><span class="token punctuation">,</span>
+                    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://www.youtube.com/watch?v=dQw4w9WgXcQ"</span><span class="token punctuation">,</span>
+                    <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704668925</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"ABBA - Happy New Year (cover by Bongo Cat)"</span><span class="token punctuation">,</span>
+                    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://www.youtube.com/watch?v=hQdVkcB6e9U"</span><span class="token punctuation">,</span>
+                    <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704668925</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"validation_prefix"</span><span class="token operator">:</span> <span class="token string">"https://youtube.com"</span><span class="token punctuation">,</span>
+            <span class="token property">"favicon"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token property">"last_access_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span><span class="token punctuation">,</span>
+            <span class="token property">"creation_time"</span><span class="token operator">:</span> <span class="token number">1704928125</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+</details>
+<details>
+<summary>Options JSON</summary>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"default_sort"</span><span class="token operator">:</span> <span class="token string">"LAST_UPDATED"</span><span class="token punctuation">,</span> <span class="token comment">// LAST_ACCESSED, LAST_CREATED, CUSTOM(?)</span>
+    <span class="token property">"default_theme"</span><span class="token operator">:</span> <span class="token string">"light"</span><span class="token punctuation">,</span> <span class="token comment">// dark, auto</span>
+    <span class="token property">"show_favicons"</span><span class="token operator">:</span> False<span class="token punctuation">,</span>
+    <span class="token property">"max_history_size"</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// -1 for infinite</span>
+    <span class="token property">"validate_urls"</span><span class="token operator">:</span> True
+<span class="token punctuation">}</span></code></pre>
+</details>
+<h2>open questions</h2>
+<ul>
+<li>How to handle user saving series with multiple names?
+<ul>
+<li>Allow this for now and use series IDs under the hood, otherwise you would need some way to check for duplicate series</li>
+<li>How to make unique ids when deleting / creating?
+<ul>
+<li>Probably use UUIDs rather than increment numbers. This also allows for easier import / merge potential</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>devlog</h2>
+<h3>2024-01-09</h3>
+<p>Went through the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension">MDN popup extension tutorial</a> and then tried to make a simple popup where you can click a button and populate it with the current tab's title and URL. Success!</p>
+<p>The thing I most struggled with was the development workflow. The manual way of adding a temporary addon, inspecting it, reloading the addon after changing it, was definitely not the way to go.</p>
+<p>After some trial and error and hunting around documentation I finally figured out a web-ext command to open the Firefox developer edition with the extension installed, to a specific page, with dev tools for the popup itself open (you can't inspect the popup itself with the normal inspector, and you can't disable the popup auto-hide either).</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">web-ext run <span class="token punctuation">\</span>
+    <span class="token parameter variable">--firefox</span><span class="token operator">=</span>/Applications/Firefox<span class="token punctuation">\</span> Developer<span class="token punctuation">\</span> Edition.app/Contents/MacOS/firefox <span class="token punctuation">\</span>
+    <span class="token parameter variable">--devtools</span> --firefox-profile<span class="token operator">=</span>dev-edition-default <span class="token punctuation">\</span>
+    --start-url http://google.com</code></pre>
+<p>I also added the <code>--firefox-profile</code> option so I could access uBlock and TreeStyleTabs in the test browser environment.</p>
+<p>Even with this, I still have to manually rearrange my windows and disable the popup auto-hide every time I run <code>web-ext</code>. Wish there was a flag or setting that I could check.</p>
+<h3>2024-01-10</h3>
+<p>Since this is just a browser extension, I didn't want to use any build tools nor any frameworks. I looked into <a href="https://frontendmasters.com/blog/vanilla-javascript-reactivity/">vanilla JS reactive app patterns</a> and tried using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components</a> for the first time and while I did get something working (see my <a href="https://github.com/ivywong/dogeared/tree/web-components">web-components branch</a> on github) I didn't have a clear understanding of how to hook the data (essentially a json blob) into separate components. Do you just store the whole object in the component itself? How could I export the data afterwards? I think if I had experience using React or other similar frameworks, it would have been more intuitive.</p>
+<h3>2024-01-11</h3>
+<p>I looked at the <a href="https://frontendmasters.com/blog/vanilla-javascript-todomvc/">TodoMVC implementation in Vanilla JS</a> by the folks at Frontend Masters and read through the code, which made a lot of sense to me (the way the data layer was separated and so on) compared to whatever I was doing with web components. It also taught me about event delegation and using events with the storage layer to trigger re-rendering. I rewrote the extension to follow the simplest approach and got the series list rendering, as well as saving and loading data from localstorage.</p>
+<h3>2024-01-12</h3>
+<p>Got the MVP of the extension working with overwrite, load, create/remove series functionality, and installed it persistently on my regular browser.</p>
+<details>
+<summary>Here are some demos! (After recording I added a "Remove Series" button.)</summary>
+<p><img src="/img/test-dogeared-rec1.gif" alt="dogeared demo save and load"></p>
+<p><img src="/img/test-dogeared-rec2.gif" alt="dogeared demo create series"></p>
+</details>
+      </article>
+    </div>
+  </body>
+</html>
