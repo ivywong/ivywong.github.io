@@ -44,21 +44,31 @@
     
     
 </div>
-<h2>overview</h2>
+<div class="anchor-wrapper">
+<h2 id="overview" tabindex="-1">overview</h2>
+<a class="header-anchor" href="#overview" class="test"><span class="visually-hidden">permalink to &quot;overview&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>I spend a lot of time reading and watching things on the internet. Sometimes these things are long / broken into parts across many different pages and I don't have a good way to keep track of my progress without either juggling a lot of bookmarks, writing down where I left off elsewhere, or eternally keeping a tab open.</p>
 <p>This browser extension tries to solve this problem by providing a way to save the current page as your place in a &quot;series&quot;, load it, and overwrite the saved page with some other page.</p>
-<h2>links</h2>
+<div class="anchor-wrapper">
+<h2 id="links" tabindex="-1">links</h2>
+<a class="header-anchor" href="#links" class="test"><span class="visually-hidden">permalink to &quot;links&quot;</span> <span aria-hidden="true">#</span></a></div>
 <ul>
 <li><a href="https://github.com/ivywong/dogeared">github repo</a></li>
 </ul>
-<h2>out of scope (for now)</h2>
+<div class="anchor-wrapper">
+<h2 id="out-of-scope-(for-now)" tabindex="-1">out of scope (for now)</h2>
+<a class="header-anchor" href="#out-of-scope-(for-now)" class="test"><span class="visually-hidden">permalink to &quot;out of scope (for now)&quot;</span> <span aria-hidden="true">#</span></a></div>
 <ul>
 <li>adding complex validation for whether you can save certain pages in a series based on URL pattern matching</li>
 <li>storing or scraping table of contents for various kinds of series (and therefore progress information)</li>
 </ul>
-<h2>development plan</h2>
+<div class="anchor-wrapper">
+<h2 id="development-plan" tabindex="-1">development plan</h2>
+<a class="header-anchor" href="#development-plan" class="test"><span class="visually-hidden">permalink to &quot;development plan&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>Until validation is implemented, in practice, what I'm referring to as a &quot;series&quot; does not have to be an actual series, but is simply &quot;a named container for a URL&quot;. For many use cases, validation would involve parsing the actual web page or providing a table of contents, which is unnecessary. Still, I plan to implement basic validation using the current domain, or a user-provided prefix.</p>
-<h3>features in order of development</h3>
+<div class="anchor-wrapper">
+<h3 id="features-in-order-of-development" tabindex="-1">features in order of development</h3>
+<a class="header-anchor" href="#features-in-order-of-development" class="test"><span class="visually-hidden">permalink to &quot;features in order of development&quot;</span> <span aria-hidden="true">#</span></a></div>
 <ul>
 <li>[x] you can create a series with the current page and a custom name</li>
 <li>[x] you can save, load, update, and delete a series</li>
@@ -75,7 +85,9 @@
 </li>
 <li>[ ] export/import series data (needs UI) (no merge)</li>
 </ul>
-<h3>sometime</h3>
+<div class="anchor-wrapper">
+<h3 id="sometime" tabindex="-1">sometime</h3>
+<a class="header-anchor" href="#sometime" class="test"><span class="visually-hidden">permalink to &quot;sometime&quot;</span> <span aria-hidden="true">#</span></a></div>
 <ul>
 <li>fancy styling and clean UI
 <ul>
@@ -104,8 +116,12 @@
 </ul>
 </li>
 </ul>
-<h2>design details</h2>
-<h3>dependencies</h3>
+<div class="anchor-wrapper">
+<h2 id="design-details" tabindex="-1">design details</h2>
+<a class="header-anchor" href="#design-details" class="test"><span class="visually-hidden">permalink to &quot;design details&quot;</span> <span aria-hidden="true">#</span></a></div>
+<div class="anchor-wrapper">
+<h3 id="dependencies" tabindex="-1">dependencies</h3>
+<a class="header-anchor" href="#dependencies" class="test"><span class="visually-hidden">permalink to &quot;dependencies&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>Browser APIs:</p>
 <ul>
 <li>tabs APIs
@@ -140,7 +156,9 @@
 <li>current page favicon (<a href="https://stackoverflow.com/questions/19183180/how-to-save-an-image-to-localstorage-and-display-it-on-the-next-page">how to save in local storage</a>)</li>
 <li>current time (when saving)</li>
 </ul>
-<h3>storage format</h3>
+<div class="anchor-wrapper">
+<h3 id="storage-format" tabindex="-1">storage format</h3>
+<a class="header-anchor" href="#storage-format" class="test"><span class="visually-hidden">permalink to &quot;storage format&quot;</span> <span aria-hidden="true">#</span></a></div>
 <details>
 <summary>Series Information JSON</summary>
 <pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
@@ -213,7 +231,9 @@
     <span class="token property">"validate_urls"</span><span class="token operator">:</span> True
 <span class="token punctuation">}</span></code></pre>
 </details>
-<h2>open questions</h2>
+<div class="anchor-wrapper">
+<h2 id="open-questions" tabindex="-1">open questions</h2>
+<a class="header-anchor" href="#open-questions" class="test"><span class="visually-hidden">permalink to &quot;open questions&quot;</span> <span aria-hidden="true">#</span></a></div>
 <ul>
 <li>How to handle user saving series with multiple names?
 <ul>
@@ -226,8 +246,12 @@
 </ul>
 </li>
 </ul>
-<h2>devlog</h2>
-<h3>2024-01-09</h3>
+<div class="anchor-wrapper">
+<h2 id="devlog" tabindex="-1">devlog</h2>
+<a class="header-anchor" href="#devlog" class="test"><span class="visually-hidden">permalink to &quot;devlog&quot;</span> <span aria-hidden="true">#</span></a></div>
+<div class="anchor-wrapper">
+<h3 id="2024-01-09" tabindex="-1">2024-01-09</h3>
+<a class="header-anchor" href="#2024-01-09" class="test"><span class="visually-hidden">permalink to &quot;2024-01-09&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>Went through the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension">MDN popup extension tutorial</a> and then tried to make a simple popup where you can click a button and populate it with the current tab's title and URL. Success!</p>
 <p>The thing I most struggled with was the development workflow. The manual way of adding a temporary addon, inspecting it, reloading the addon after changing it, was definitely not the way to go.</p>
 <p>After some trial and error and hunting around documentation I finally figured out a web-ext command to open the Firefox developer edition with the extension installed, to a specific page, with dev tools for the popup itself open (you can't inspect the popup itself with the normal inspector, and you can't disable the popup auto-hide either).</p>
@@ -237,11 +261,17 @@
     --start-url http://google.com</code></pre>
 <p>I also added the <code>--firefox-profile</code> option so I could access uBlock and TreeStyleTabs in the test browser environment.</p>
 <p>Even with this, I still have to manually rearrange my windows and disable the popup auto-hide every time I run <code>web-ext</code>. Wish there was a flag or setting that I could check.</p>
-<h3>2024-01-10</h3>
+<div class="anchor-wrapper">
+<h3 id="2024-01-10" tabindex="-1">2024-01-10</h3>
+<a class="header-anchor" href="#2024-01-10" class="test"><span class="visually-hidden">permalink to &quot;2024-01-10&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>Since this is just a browser extension, I didn't want to use any build tools nor any frameworks. I looked into <a href="https://frontendmasters.com/blog/vanilla-javascript-reactivity/">vanilla JS reactive app patterns</a> and tried using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components</a> for the first time and while I did get something working (see my <a href="https://github.com/ivywong/dogeared/tree/web-components">web-components branch</a> on github) I didn't have a clear understanding of how to hook the data (essentially a json blob) into separate components. Do you just store the whole object in the component itself? How could I export the data afterwards? I think if I had experience using React or other similar frameworks, it would have been more intuitive.</p>
-<h3>2024-01-11</h3>
+<div class="anchor-wrapper">
+<h3 id="2024-01-11" tabindex="-1">2024-01-11</h3>
+<a class="header-anchor" href="#2024-01-11" class="test"><span class="visually-hidden">permalink to &quot;2024-01-11&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>I looked at the <a href="https://frontendmasters.com/blog/vanilla-javascript-todomvc/">TodoMVC implementation in Vanilla JS</a> by the folks at Frontend Masters and read through the code, which made a lot of sense to me (the way the data layer was separated and so on) compared to whatever I was doing with web components. It also taught me about event delegation and using events with the storage layer to trigger re-rendering. I rewrote the extension to follow the simplest approach and got the series list rendering, as well as saving and loading data from localstorage.</p>
-<h3>2024-01-12</h3>
+<div class="anchor-wrapper">
+<h3 id="2024-01-12" tabindex="-1">2024-01-12</h3>
+<a class="header-anchor" href="#2024-01-12" class="test"><span class="visually-hidden">permalink to &quot;2024-01-12&quot;</span> <span aria-hidden="true">#</span></a></div>
 <p>Got the MVP of the extension working with overwrite, load, create/remove series functionality, and installed it persistently on my regular browser.</p>
 <details>
 <summary>Here are some demos! (After recording I added a "Remove Series" button.)</summary>
